@@ -7,7 +7,7 @@ public class TFTPDefines {
 	public static final int ACK = 4;
 	public static final int ERROR = 5;
 	
-	public static final int SERVER_PORT = 25001;
+	public static final int SERVER_PORT = 69;
 	public static final int INTERMEDIATE_PORT = 23;
 	
 	public enum CommunicationMode{

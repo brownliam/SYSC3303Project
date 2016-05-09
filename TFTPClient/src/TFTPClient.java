@@ -30,7 +30,7 @@ public class TFTPClient {
 	
 	public void Run()
 	{
-		SendRequest();
+		SendReadRequest();
 		WaitForACK();
 	}
 	
@@ -66,11 +66,13 @@ public class TFTPClient {
 			ex.printStackTrace();
 			System.exit(-1);
 		}
+		
+		
 		return false;
 	}
 	
 
-	private void SendRequest(){
+	private void SendReadRequest(){
 		
 		TFTPPacket tftpPacket = null;
 		DatagramPacket datagramPacket = null;
@@ -111,8 +113,10 @@ public class TFTPClient {
 		System.out.println("From Port: " + packet.getPort());
 		System.out.println("Packet Length: " + packet.getLength());
 		System.out.println("Packet String: " + new String(data,0,  packet.getLength()));
-		System.out.print("Packet Bytes: ");
-		System.out.println(data);
+		System.out.println("Containing: ");
+		for (int j=0;j<packet.getLength();j++) {
+			System.out.print("byte " + j + ": " + data[j] + ", ");
+		}
 	}
 	
 	
