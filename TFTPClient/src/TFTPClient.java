@@ -1,6 +1,12 @@
 import java.io.*;
 import java.net.*;
 import java.nio.*;
+
+import TFTPPackets.ITFTPPacket;
+import TFTPPackets.TFTPDefines;
+import TFTPPackets.TFTPPacket;
+import TFTPPackets.TFTPPacketReader;
+import TFTPPackets.TFTPReadRequestPacket;
 public class TFTPClient {
 	
 	DatagramPacket receivePacket;

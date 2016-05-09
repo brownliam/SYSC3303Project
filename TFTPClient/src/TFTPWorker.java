@@ -1,5 +1,9 @@
 import java.net.*;
 
+import TFTPPackets.TFTPAcknowledgementPacket;
+import TFTPPackets.TFTPCompleteListener;
+import TFTPPackets.TFTPConnection;
+
 public class TFTPWorker implements Runnable {
 	
 	DatagramSocket sendSocket;
