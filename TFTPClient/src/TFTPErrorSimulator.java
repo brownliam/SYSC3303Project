@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 
 
-public class TFTPIntermediateHost {
+public class TFTPErrorSimulator {
 	
 	DatagramSocket clientSendReceiveSocket;
 	DatagramSocket serverSendReceiveSocket;
@@ -12,11 +12,11 @@ public class TFTPIntermediateHost {
 	int clientSendPort;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TFTPIntermediateHost host = new TFTPIntermediateHost();
+		TFTPErrorSimulator host = new TFTPErrorSimulator();
 		host.Run();
 	}
 	
-	public TFTPIntermediateHost(){
+	public TFTPErrorSimulator(){
 		try{
 			clientSendReceiveSocket = new DatagramSocket(clientPort);
 			serverSendReceiveSocket = new DatagramSocket();
