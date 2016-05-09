@@ -7,6 +7,7 @@ import TFTPPackets.TFTPDefines;
 import TFTPPackets.TFTPPacket;
 import TFTPPackets.TFTPPacketReader;
 import TFTPPackets.TFTPReadRequestPacket;
+
 public class TFTPClient {
 	
 	DatagramPacket receivePacket;
