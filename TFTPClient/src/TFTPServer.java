@@ -2,6 +2,8 @@ import java.net.*;
 import java.util.Hashtable;
 import java.util.concurrent.locks.*;
 
+import javax.swing.JTextArea;
+
 import TFTPPackets.ITFTPPacket;
 import TFTPPackets.TFTPCompleteListener;
 import TFTPPackets.TFTPConnection;
@@ -15,6 +17,7 @@ public class TFTPServer implements TFTPCompleteListener {
 	DatagramSocket receiveSocket;
 	Hashtable<TFTPConnection, TFTPWorker> connections = new Hashtable<TFTPConnection, TFTPWorker>();
 	final Lock lock = new ReentrantLock();
+	JTextArea str = new JTextArea();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -30,6 +33,7 @@ public class TFTPServer implements TFTPCompleteListener {
 			exception.printStackTrace();
 			System.exit(-1);
 		}
+		new TFTPServerUI(this);
 	}
 	
 	public void Run(){
@@ -86,13 +90,18 @@ public class TFTPServer implements TFTPCompleteListener {
 			return;
 		}
 		
-		System.out.println("*******************SERVER**********************");
-		System.out.println("From IP: " + packet.getAddress());
-		System.out.println("From Port: " + packet.getPort());
-		System.out.println("Packet Length: " + packet.getLength());
-		System.out.println("Packet String: " + new String(data,0,  packet.getLength()));
-		System.out.print("Packet Bytes: ");
-		System.out.println(data);
+		str.append("*******************SERVER**********************");
+		str.append("\nFrom IP: " + packet.getAddress());
+		str.append("\nFrom Port: " + packet.getPort());
+		str.append("\nPacket Length: " + packet.getLength());
+		str.append("\nPacket String: " + new String(data,0,  packet.getLength()));
+		str.append("\nPacket Bytes: ");
+		String received = new String(data, 0, packet.getLength());
+		str.append(received);
+	}
+	
+	public JTextArea getTextArea(){
+		return str;
 	}
 
 	@Override
@@ -125,6 +134,10 @@ public class TFTPServer implements TFTPCompleteListener {
 			lock.unlock();
 		}
 			
+	}
+	
+	public DatagramSocket getReceiveSocket(){
+		return receiveSocket;
 	}
 
 }
