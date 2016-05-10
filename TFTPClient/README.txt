@@ -8,7 +8,7 @@ Team #10
 
 Team Member:
 - Raymond Wu		100938326
-- Liam Brown				
+- Liam Brown   100884757
 - Mamush Dejene		100910189			
 - Zening Jiang		100935033
 - Stephan Slowly	100948709
