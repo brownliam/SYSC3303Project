@@ -2,6 +2,8 @@ import java.io.*;
 import java.net.*;
 import java.nio.*;
 
+import javax.swing.JTextArea;
+
 import TFTPPackets.ITFTPPacket;
 import TFTPPackets.TFTPDefines;
 import TFTPPackets.TFTPPacket;
@@ -10,8 +12,9 @@ import TFTPPackets.TFTPReadRequestPacket;
 
 public class TFTPClient {
 	
-	DatagramPacket receivePacket;
-	DatagramSocket sendReceiveSocket;
+	private DatagramPacket receivePacket;
+	private DatagramSocket sendReceiveSocket;
+	private JTextArea packetInfo = new JTextArea();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,6 +29,11 @@ public class TFTPClient {
 			exception.printStackTrace();
 			System.exit(-1);
 		}
+		new TFTPClientUI(this);
+	}
+	
+	public DatagramSocket getSendReceiveSocket(){
+		return sendReceiveSocket;
 	}
 	
 	public void Run()
@@ -108,16 +116,19 @@ public class TFTPClient {
 			System.out.println("Data is NULL");
 			return;
 		}
-		System.out.println("*******************Client**********************");
-		System.out.println("From IP: " + packet.getAddress());
-		System.out.println("From Port: " + packet.getPort());
-		System.out.println("Packet Length: " + packet.getLength());
-		System.out.println("Packet String: " + new String(data,0,  packet.getLength()));
-		System.out.println("Containing: ");
+		packetInfo.append("*******************Client**********************");
+		packetInfo.append("\nFrom IP: " + packet.getAddress());
+		packetInfo.append("\nFrom Port: " + packet.getPort());
+		packetInfo.append("\nPacket Length: " + packet.getLength());
+		packetInfo.append("\nPacket String: " + new String(data,0,  packet.getLength()));
+		packetInfo.append("\nContaining: ");
 		for (int j=0;j<packet.getLength();j++) {
-			System.out.print("byte " + j + ": " + data[j] + ", ");
+			packetInfo.append("byte " + j + ": " + data[j] + ", ");
 		}
 	}
 	
+	public JTextArea getPacketInfo(){
+		return packetInfo;
+	}
 	
 }

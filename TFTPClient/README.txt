@@ -9,7 +9,7 @@ Team #10
 Team Member:
 - Raymond Wu		100938326
 - Liam Brown				
-- Mamush Dejene	 100910189			
+- Mamush Dejene		100910189			
 - Zening Jiang		100935033
 - Stephan Slowly	100948709
 
@@ -52,4 +52,6 @@ Dummy Test File:
 1. Run TFTPServer.java
 2. Run TFTPErrorSimulator.java
 3. Run TFTPClient.java
+
+To shut down TFTPClient and TFTPClient, click the red 'X' button (close button).
 
