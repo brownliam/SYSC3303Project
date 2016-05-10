@@ -9,7 +9,7 @@ Team #10
 Team Member:
 - Raymond Wu		100938326
 - Liam Brown				
-- Mamush Dejene				
+- Mamush Dejene	 100910189			
 - Zening Jiang		100935033
 - Stephan Slowly	100948709
 
@@ -20,7 +20,7 @@ Raymond:
 Liam:
  - UCM Diagram, UML Diagram
 Mamush:
- - Server, Client, MultiThreates
+ - Server, Client, Threaded workers
 Zening:
  - User Interface, Test file Created
 Stephan:
