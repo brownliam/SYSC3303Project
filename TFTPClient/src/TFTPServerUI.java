@@ -26,9 +26,10 @@ public class TFTPServerUI {
 		pane.setLayout(new GridLayout(1, 1));
 		textArea = new JTextArea();
 		textArea.setEditable(false);
-		scrollPane = new JScrollPane(server.getTextArea(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane = new JScrollPane(server.getPacketInfo(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		pane.add(scrollPane);
 		frame.setSize(400, 150);
+		frame.setLocation(0, 0);
 		frame.setVisible(true);
 
 	}

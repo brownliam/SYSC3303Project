@@ -14,10 +14,10 @@ import TFTPPackets.TFTPWriteRequestPacket;
 
 public class TFTPServer implements TFTPCompleteListener {
 
-	DatagramSocket receiveSocket;
-	Hashtable<TFTPConnection, TFTPWorker> connections = new Hashtable<TFTPConnection, TFTPWorker>();
-	final Lock lock = new ReentrantLock();
-	JTextArea str = new JTextArea();
+	private DatagramSocket receiveSocket;
+	private Hashtable<TFTPConnection, TFTPWorker> connections = new Hashtable<TFTPConnection, TFTPWorker>();
+	private final Lock lock = new ReentrantLock();
+	private JTextArea packetInfo = new JTextArea();
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -90,18 +90,18 @@ public class TFTPServer implements TFTPCompleteListener {
 			return;
 		}
 		
-		str.append("*******************SERVER**********************");
-		str.append("\nFrom IP: " + packet.getAddress());
-		str.append("\nFrom Port: " + packet.getPort());
-		str.append("\nPacket Length: " + packet.getLength());
-		str.append("\nPacket String: " + new String(data,0,  packet.getLength()));
-		str.append("\nPacket Bytes: ");
+		packetInfo.append("*******************SERVER**********************");
+		packetInfo.append("\nFrom IP: " + packet.getAddress());
+		packetInfo.append("\nFrom Port: " + packet.getPort());
+		packetInfo.append("\nPacket Length: " + packet.getLength());
+		packetInfo.append("\nPacket String: " + new String(data,0,  packet.getLength()));
+		packetInfo.append("\nPacket Bytes: ");
 		String received = new String(data, 0, packet.getLength());
-		str.append(received);
+		packetInfo.append(received);
 	}
 	
-	public JTextArea getTextArea(){
-		return str;
+	public JTextArea getPacketInfo(){
+		return packetInfo;
 	}
 
 	@Override
